@@ -92,7 +92,47 @@ function test(){
 }
 test();
 
+/* Objects & Arrays*/
+var result = {
+    name: "abc",
+    language: "JavaScript",
+    score: 4.5,
+    showLog: function(){},
+    owner:{
+        login:"abc",
+        id:123
+    }    
+};
+result.phoneNumber="1234567890"
+console.log(result.name);
+console.log(result.phoneNumber);
 
+var array = [{
+    name: "abc",
+    language: "javascript",
+    score: 4.5,
+    showLog: function(){},
+    owner:{
+        login:"abc",
+        id:123
+    }
+}, {
+    name: "pqr",
+    language: "javascript",
+    score: 3.5,
+    showLog: function(){},
+    owner:{
+        login:"pqr",
+        id:123
+    },
+}];
 
+console.log(array.length);
+console.log(array[0]);
 
- 
+/* Looping */
+for (var x=0; x<=array.length; x++){
+    var array = array[x];
+    if (array.score<4) break;
+    console.log(array.name);
+} 

@@ -2,7 +2,6 @@
 
 var msg="Hello Javascript-basic"
 alert(msg)
-
 console.log(msg)
 
 //Variable and types
@@ -17,10 +16,16 @@ var none;
 console.log("none is" + typeof(none));
 
 var anum=10
+console.log(String(anum))
 console.log("anum is" + typeof(anum))
 
 var truefalse = true
 console.log("truefalse is" + typeof(truefalse));
+//type conversion
+let y = "John";
+let a = + y;
+console.log(y + " " + typeof y)
+console.log(a + " " + typeof a)
 
 // msgs ="shouldn't work"
 
@@ -28,11 +33,9 @@ console.log("truefalse is" + typeof(truefalse));
 if (none == undefined){
     console.log ("none is undefined")
 }
-
 if (anum=="10"){
     console.log("10 is 10")
 }
-
 if (anum!="10"){
     console.log ("10 is not 10")
 }
@@ -104,6 +107,7 @@ var result = {
 result.phoneNumber="1234567890"
 console.log(result.name);
 console.log(result.phoneNumber);
+console.log(result.owner.id)
 
 var array = [{
     name: "abc",
@@ -200,3 +204,40 @@ switch (new Date().getDay()) {
         day = "It's not the Weekend";
 }
 console.log(day)
+
+//sets
+const letters = new Set();
+console.log(letters.size)
+letters.add("a");
+letters.add("b");
+letters.add("c");
+console.log(letters.size)
+letters.delete("c");
+console.log(letters.size)
+console.log(letters)
+
+//Regular Expression
+let text = "Hey! I'm learning JavaScript"
+const pattern = /learn/;
+console.log(text.search(/learn/i));
+console.log(pattern.test(text));
+
+//error handling
+function error_handling() {
+    const message = document.getElementById("display");
+    message.innerHTML = "";
+    let p = document.getElementById("input").value;
+    try { 
+        if(p == "")  throw "enter number";
+        if(isNaN(p)) throw "is not a number";
+        p = Number(p);
+        if(p > 100)   throw "number is >100";
+        if(p < 50)  throw "number is <50";
+    }
+    catch(err) {
+        message.innerHTML = err;
+    }
+    finally {
+        document.getElementById("input").value = "";
+    }
+}

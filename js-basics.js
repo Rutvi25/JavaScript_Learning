@@ -171,3 +171,17 @@ for (var x=0; x<=array.length; x++){
     if (array.score<4) break;
     console.log(array.name);
 } 
+
+// Switch
+var day;
+switch (new Date().getDay()) {
+    case 0:
+        day = "It's Sunday";
+      break;
+    case 6:
+        day = "It's Saturday";
+      break;
+    default:
+        day = "It's not the Weekend";
+}
+console.log(day)

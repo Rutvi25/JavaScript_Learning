@@ -130,6 +130,41 @@ var array = [{
 console.log(array.length);
 console.log(array[0]);
 
+// Sorting the array
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();
+fruits.reverse();
+document.getElementById("array_demo").innerHTML = fruits;
+
+//Numerical_Sort
+const cars = [
+    {type:"Volvo", year:2016},
+    {type:"Saab", year:2001},
+    {type:"BMW", year:2010}
+];
+cars.sort(function(a, b){return a.year - b.year});
+displayCars();
+function displayCars() {
+    document.getElementById("numerical_sort").innerHTML =
+    cars[0].type + " " + cars[0].year + "<br>" +
+    cars[1].type + " " + cars[1].year + "<br>" +
+    cars[2].type + " " + cars[2].year;
+}
+
+// array map()
+const original_array = [1, 2, 3, 4, 5];
+const new_array = original_array.map(multiply);
+console.log(original_array)
+console.log(new_array)
+function multiply(value, index, array) {
+  return value * 2;
+}
+const over3 = original_array.filter(above3);
+function above3(value, index, array){
+    return value > 3;
+}
+console.log(over3)
+
 /* Looping */
 for (var x=0; x<=array.length; x++){
     var array = array[x];

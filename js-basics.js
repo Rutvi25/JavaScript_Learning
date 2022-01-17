@@ -5,7 +5,7 @@ alert(msg)
 
 console.log(msg)
 
-/*Variable and types*/
+//Variable and types
 
 var resultDiv = document.getElementById("results");
 resultDiv.innerHTML = "This is from JS"
@@ -24,8 +24,7 @@ console.log("truefalse is" + typeof(truefalse));
 
 // msgs ="shouldn't work"
 
-/* Conditionals */
-
+// Conditionals 
 if (none == undefined){
     console.log ("none is undefined")
 }
@@ -38,7 +37,7 @@ if (anum!="10"){
     console.log ("10 is not 10")
 }
 
-    /*for exact comparision */
+    // for exact comparision 
 
 if (anum===10){
     console.log("10 is 10")
@@ -47,7 +46,7 @@ if (anum!=="10"){
     console.log ("10 is not 10")
 }
 
-/* Functions */
+// Functions 
 
 function showmsg(msg, more){
     if (more){
@@ -60,12 +59,11 @@ function showmsg(msg, more){
 showmsg("some info ");
 showmsg("more info ", "and even more");
 
-/* function as a variable*/
+// function as a variable
 
 var show = function(msg){
     console.log(msg);
 }
-
 show("Some message");
 
 function showthen (msg, callback){
@@ -77,7 +75,7 @@ showthen("showthen called", function (){
     console.log("callback called");
 })
 
-/* scopes */
+// scopes 
 var inGlobal = true;
 function test(){
     console.log("test():"+inGlobal)
@@ -85,14 +83,14 @@ function test(){
     var somemsg="Some Message";
     console.log("test(): "+somemsg)
 
-    /* Closure */
+    // Closure 
     showthen("with closure", function(){
         show("test with closure(): "+somemsg);
     });
 }
 test();
 
-/* Objects & Arrays*/
+// Objects & Arrays
 var result = {
     name: "abc",
     language: "JavaScript",
@@ -165,12 +163,29 @@ function above3(value, index, array){
 }
 console.log(over3)
 
-/* Looping */
+// Looping 
 for (var x=0; x<=array.length; x++){
     var array = array[x];
     if (array.score<4) break;
     console.log(array.name);
 } 
+
+// for in loop
+const numbers = [1, 2, 3, 4, 5];
+let num = "";
+for (let x in numbers) {
+  num += numbers[x] + "<br>"; 
+}
+document.getElementById("for_in").innerHTML = num;
+
+//while loop
+let series="";
+let i=0;
+while (i < 5) {
+    series += i + "<br>";
+    i++;
+}
+document.getElementById("series").innerHTML = series;
 
 // Switch
 var day;

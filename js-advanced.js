@@ -54,3 +54,32 @@ function n(hoist){
 function o(hoist){
     return m(hoist*2);
 }
+
+//This Keyword
+var person = {
+    firstname: "Rutvi",
+    lastname: "Patel",
+    name: function(){
+        return this.firstname+" "+this.lastname;
+    }
+}
+console.log(person.name());
+let y = this;  //here, this refers to a window object
+console.log(y)
+
+//Explicit Binding
+function bind(){
+    console.log(this.fruit);
+}
+var fruit = "apple";
+var obj = {fruit:"mango"};
+bind();
+bind.call(obj);
+
+// New keyword
+function car(make, model){
+    this.make = make;
+    this.model = model;
+}
+let car1 = new car("Tata", "Nano");
+console.log(car1.model);

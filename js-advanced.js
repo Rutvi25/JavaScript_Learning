@@ -41,3 +41,16 @@ var iife="iife";
     console.log(iife);
 })();
 console.log(iife);
+
+//Hoisting: Recursion
+console.log(m(1));
+function m(hoist){
+    if (hoist>20) return hoist;
+    return n(hoist+2);
+}
+function n(hoist){
+    return o(hoist)+1;
+}
+function o(hoist){
+    return m(hoist*2);
+}

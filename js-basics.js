@@ -5,20 +5,15 @@ alert(msg)
 console.log(msg)
 
 //Variable and types
-
 var resultDiv = document.getElementById("results");
 resultDiv.innerHTML = "This is from JS"
-
 console.log("msg is" + typeof(msg));
 console.log("resultDiv is" + typeof(resultDiv));
-
 var none;
 console.log("none is" + typeof(none));
-
 var anum=10
 console.log(String(anum))
 console.log("anum is" + typeof(anum))
-
 var truefalse = true
 console.log("truefalse is" + typeof(truefalse));
 //type conversion
@@ -39,9 +34,7 @@ if (anum=="10"){
 if (anum!="10"){
     console.log ("10 is not 10")
 }
-
     // for exact comparision 
-
 if (anum===10){
     console.log("10 is 10")
 }
@@ -50,7 +43,6 @@ if (anum!=="10"){
 }
 
 // Functions 
-
 function showmsg(msg, more){
     if (more){
         console.log("showmsg "+msg+more);
@@ -58,22 +50,18 @@ function showmsg(msg, more){
         console.log("showmsg "+msg)
     }
 }
-
 showmsg("some info ");
 showmsg("more info ", "and even more");
 
 // function as a variable
-
 var show = function(msg){
     console.log(msg);
 }
 show("Some message");
-
 function showthen (msg, callback){
     show(msg);
     callback();
 }
-
 showthen("showthen called", function (){
     console.log("callback called");
 })
@@ -82,10 +70,8 @@ showthen("showthen called", function (){
 var inGlobal = true;
 function test(){
     console.log("test():"+inGlobal)
-
     var somemsg="Some Message";
     console.log("test(): "+somemsg)
-
     // Closure 
     showthen("with closure", function(){
         show("test with closure(): "+somemsg);
@@ -108,7 +94,6 @@ result.phoneNumber="1234567890"
 console.log(result.name);
 console.log(result.phoneNumber);
 console.log(result.owner.id)
-
 var array = [{
     name: "abc",
     language: "javascript",
@@ -219,7 +204,7 @@ console.log(letters)
 //Regular Expression
 let text = "Hey! I'm learning JavaScript"
 const pattern = /learn/;
-console.log(text.search(/learn/i));
+console.log(text.search(/l/i));
 console.log(pattern.test(text));
 
 //error handling
@@ -241,3 +226,9 @@ function error_handling() {
         document.getElementById("input").value = "";
     }
 }
+
+// Arrow Functions
+let arrow=(a,b)=>a+b;
+console.log(arrow(100,200))
+let hello = () => "Hello World";
+console.log(hello())

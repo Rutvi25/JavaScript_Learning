@@ -8,7 +8,6 @@ function scope(){
     }
     f();
 }
-
 console.log(scope());
 console.log(a);
 console.log(javascript);
@@ -83,3 +82,69 @@ function car(make, model){
 }
 let car1 = new car("Tata", "Nano");
 console.log(car1.model);
+
+// Closure
+function closure(){  
+    var clsr="clsr"
+    function closure1(){
+        console.log(">>> clsr", clsr)
+    }
+    closure2(closure1);
+    closure1();
+}
+function closure2(closure1){
+    closure1();
+}
+closure();
+closure2(closure);
+
+// closure: shared scope
+function shared(){
+    var a=0;
+    setTimeout(function(){
+        console.log(a++);
+    },300);
+    setTimeout(function(){
+        console.log(a++)
+    },200);
+    setTimeout(function(){
+        console.log(a++)
+    },1000);
+}
+shared();
+
+//closure: nested scope
+function nested(){
+    var b = 0;  
+    setTimeout(function(){
+        var c=1;
+        console.log(++b);
+
+        setTimeout(function(){
+            console.log(b+c);
+        },200);
+    },100);
+}
+nested();
+
+//closure: loops
+   // it will only give one final value of i at the end.
+for (var i=1; i<5; i++){
+    setTimeout(function(){
+        console.log("i: "+i);
+    }, i*10);
+}
+    // To get the different value of i for every iteration, IIFE pattern should be applied.
+for (var j=1; j<=5; j++){
+    (function(j){setTimeout(function(){
+        console.log("j: "+j);
+    }, j*1000);})(j);
+}
+    // instead of using IIFE pattern, the same thing can be achieved by using the block scope.
+    // it will re-bind the i for each iteration of the for-loop.
+for (let i=1; i<5; i++){
+    setTimeout(function(){
+        console.log("i: "+i);
+    },i*1000);
+}
+

@@ -148,3 +148,30 @@ for (let i=1; i<5; i++){
     },i*1000);
 }
 
+// Module Pattern
+//classic module pattern
+var module = (function(){
+    var o = {mdl: "mdl"};
+
+    return{
+        mdl: function(){
+            console.log(">>> Module Pattern ",o.mdl);
+        }
+    };
+})();
+module.mdl();
+
+//modified module pattern
+var modified = (function(){
+    var pubAPI = {
+        modi: function(){
+            pubAPI.pub();
+        },
+        pub: function(){
+            console.log("pub");
+        }
+    };
+    return pubAPI;
+})();
+modified.modi();
+

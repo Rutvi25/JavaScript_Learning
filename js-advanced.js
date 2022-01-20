@@ -152,7 +152,6 @@ for (let i=1; i<5; i++){
 //classic module pattern
 var module = (function(){
     var o = {mdl: "mdl"};
-
     return{
         mdl: function(){
             console.log(">>> Module Pattern ",o.mdl);
@@ -165,13 +164,70 @@ module.mdl();
 var modified = (function(){
     var pubAPI = {
         modi: function(){
-            pubAPI.pub();
+            pubAPI.pub();   
         },
         pub: function(){
-            console.log("pub");
+            console.log("public api");
         }
     };
     return pubAPI;
 })();
 modified.modi();
 
+// Object oriented 
+//Prototype
+function Person(first, last, age) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+}
+Person.prototype.name = function() {
+    return this.firstName + " " + this.lastName
+};
+const self = new Person("Rutvi", "Patel", 21);
+console.log(">>> Prototype", self.name());
+
+// Prototype: Objects linked
+function Proto(who){
+    this.me=who;
+}
+Proto.prototype.identity = function(){
+    return "I'm "+this.me;
+}
+function Name(who){
+    Proto.call(this,who);
+}
+Name.prototype = Object.create(Proto.prototype);
+Name.prototype.speak = function(){
+    alert("Hello, "+this.identity())
+};
+var root = new Name("Root")
+root.speak();
+
+// Callbacks
+function answer(ans) {
+    console.log(">>>callback: "+ans);
+}
+function Calculate(num1, num2, callback) {
+    let sum = num1 + num2;
+    callback(sum);
+}
+Calculate(5, 5, answer);
+// here, answer is a function and calculate is an argument.
+
+//nested callbacks
+function getData(d,cb){
+    setTimeout(function(){ cb(d); },1000);
+}
+getData(10,function(no1){
+    var x = 1+no1;
+    getData(20,function(no2){
+        var y=1+no2;
+        getData(
+            "nested callback: "+(x+y),
+            function(ans){
+                console.log(ans);
+            }
+        )
+    })
+})

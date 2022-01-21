@@ -308,5 +308,19 @@ const getDatas = async function(){
   }
 }
 getDatas();
-
+//Object Spread Operator
+const animals = {
+  tiger: 20,
+  lion: 15,
+  monkey:10,
+  bird:5
+}
+function objectSpread(p1, p2, p3){
+  console.log(">>> Object spread operator")
+  console.log(p1)
+  console.log(p2)
+  console.log(p3)
+}
+const { tiger, lion, ...rest} = animals;
+objectSpread(tiger, lion, rest);
 

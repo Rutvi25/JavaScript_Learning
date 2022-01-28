@@ -11,7 +11,6 @@ function scope() {
 console.log(scope());
 console.log(a);
 console.log(javascript);
-
 // Eval keyword
 var x = "eval";
 function func(str) {
@@ -19,7 +18,6 @@ function func(str) {
   console.log(eval);
 }
 func("var eval=100");
-
 //with keyword
 var obj = {
   p: 20,
@@ -32,7 +30,6 @@ with (obj) {
 }
 console.log(obj.r);
 console.log(r);
-
 //IIFE pattern
 var iife = "iife";
 (function () {
@@ -40,7 +37,6 @@ var iife = "iife";
   console.log(iife);
 })();
 console.log(iife);
-
 //Hoisting: Recursion
 console.log(m(1));
 function m(hoist) {
@@ -53,7 +49,6 @@ function n(hoist) {
 function o(hoist) {
   return m(hoist * 2);
 }
-
 //This Keyword
 var person = {
   firstname: "Rutvi",
@@ -65,7 +60,6 @@ var person = {
 console.log(person.name());
 let y = this; //here, this refers to a window object
 console.log(y);
-
 //Explicit Binding
 function bind() {
   console.log(this.fruit);
@@ -74,7 +68,6 @@ var fruit = "apple";
 var obj = { fruit: "mango" };
 bind();
 bind.call(obj);
-
 // New keyword
 function car(make, model) {
   this.make = make;
@@ -82,7 +75,6 @@ function car(make, model) {
 }
 let car1 = new car("Tata", "Nano");
 console.log(car1.model);
-
 // Closure
 function closure() {
   var clsr = "clsr";
@@ -97,7 +89,6 @@ function closure2(closure1) {
 }
 closure();
 closure2(closure);
-
 // closure: shared scope
 function shared() {
   var a = 0;
@@ -112,7 +103,6 @@ function shared() {
   }, 1000);
 }
 shared();
-
 //closure: nested scope
 function nested() {
   var b = 0;
@@ -126,7 +116,6 @@ function nested() {
   }, 100);
 }
 nested();
-
 //closure: loops
 // it will only give one final value of i at the end.
 for (var i = 1; i < 5; i++) {
@@ -149,7 +138,6 @@ for (let i = 1; i < 5; i++) {
     console.log("i: " + i);
   }, i * 1000);
 }
-
 // Module Pattern
 //classic module pattern
 var module = (function () {
@@ -161,7 +149,6 @@ var module = (function () {
   };
 })();
 module.mdl();
-
 //modified module pattern
 var modified = (function () {
   var pubAPI = {
@@ -175,7 +162,6 @@ var modified = (function () {
   return pubAPI;
 })();
 modified.modi();
-
 // Object oriented
 //Prototype
 function Person(first, last, age) {
@@ -188,7 +174,6 @@ Person.prototype.name = function () {
 };
 const self = new Person("Rutvi", "Patel", 21);
 console.log(">>> Prototype", self.name());
-
 // Prototype: Objects linked
 function Proto(who) {
   this.me = who;
@@ -205,7 +190,6 @@ Name.prototype.speak = function () {
 };
 var root = new Name("Root");
 root.speak();
-
 // Callbacks
 function answer(ans) {
   console.log(">>>callback: " + ans);
@@ -216,7 +200,6 @@ function Calculate(num1, num2, callback) {
 }
 Calculate(5, 5, answer);
 // here, answer is a function and calculate is an argument.
-
 //nested callbacks
 function getData(d, cb) {
   setTimeout(function () {
@@ -272,7 +255,6 @@ promise
   .then(result3 => {
     console.log(result3 + "i");
   })
-
 const urls = [
   "https://jsonplaceholder.typicode.com/users",
   "https://jsonplaceholder.typicode.com/posts",
@@ -294,7 +276,6 @@ async function fetchUser(){
   console.log(">>> o/p from async/await fetchUser()",data);
 }
 fetchUser();
-
 const getDatas = async function(){
   try{
     const [ users, posts, albums ] = await Promise.all(urls.map(url =>
@@ -394,3 +375,43 @@ const myHashTable = new HashTable(50);
 myHashTable.set("grapes",10000);
 myHashTable.set("apples",54);
 myHashTable.get("grapes");
+// object map
+var myObject = { 'a': 1, 'b': 2, 'c': 3 };
+Object.keys(myObject).map(function(key, index) {
+  myObject[key] *= 2;
+});
+console.log(">>> object map", myObject);
+// object map using for ... in 
+var studentData = { "John" : 85, "Maria" : 87, Robert: 85 };
+for (var key in studentData) {
+  if (studentData.hasOwnProperty(key)) {
+    studentData[key] -= 20;
+  }
+}
+console.log(">>> object map", studentData);
+//using forEach
+let numberSet = { 'a': 5, 'b': 10, 'c': 15 }, square = {};
+Object.keys(numberSet).forEach(function (key) {
+  let value = numberSet[key];
+  square[key] = value * value;
+});
+console.log(">>> object map", square);
+//function borrowing
+let myName = {
+  fname: "Rutvi",
+  lname: "Patel",
+}
+let fullName = function(city, state) {
+  console.log(this.fname + " " + this.lname + " from " + city + ", " + state);
+}
+fullName.call(myName, "ahmedabad", "Gujarat");
+let name2 = {
+  fname: "John",
+  lname: "Doe",
+}
+fullName.call(name2, "Mumbai", "Maharashtra");
+fullName.apply(name2, ["Jaipur", "Rajasthan"]);
+// bind method
+let printMyName = fullName.bind(name2, "Mumbai", "Maharashtra");
+console.log(">>> Bind Method: ", printMyName)
+printMyName();

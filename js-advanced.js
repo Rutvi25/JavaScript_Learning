@@ -94,7 +94,7 @@ function shared() {
   var a = 0;
   setTimeout(function () {
     console.log(a++);
-  }, 300);
+  }, 100);
   setTimeout(function () {
     console.log(a++);
   }, 200);
@@ -111,8 +111,8 @@ function nested() {
     console.log(++b);
 
     setTimeout(function () {
-      console.log(b + c);
-    }, 200);
+      console.log(">>> setTimeout=0",b + c);
+    }, 000);
   }, 100);
 }
 nested();
@@ -389,14 +389,14 @@ for (var key in studentData) {
   }
 }
 console.log(">>> object map", studentData);
-//using forEach
+// using forEach
 let numberSet = { 'a': 5, 'b': 10, 'c': 15 }, square = {};
 Object.keys(numberSet).forEach(function (key) {
   let value = numberSet[key];
   square[key] = value * value;
 });
 console.log(">>> object map", square);
-//function borrowing
+// function borrowing
 let myName = {
   fname: "Rutvi",
   lname: "Patel",

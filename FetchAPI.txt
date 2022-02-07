@@ -1,0 +1,1 @@
+It's the Sample File for learning Fetch API with JS.

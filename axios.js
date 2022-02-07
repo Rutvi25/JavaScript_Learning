@@ -121,7 +121,8 @@ function cancelToken() {
       }
     });
   if(true) {
-    source.cancle("Request Canceled")
+    console.log(source)
+    source.cancel("Request Canceled")
   }
 }
 // INTERCEPTING REQUESTS & RESPONSES

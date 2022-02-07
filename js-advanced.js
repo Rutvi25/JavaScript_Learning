@@ -415,3 +415,21 @@ fullName.apply(name2, ["Jaipur", "Rajasthan"]);
 let printMyName = fullName.bind(name2, "Mumbai", "Maharashtra");
 console.log(">>> Bind Method: ", printMyName)
 printMyName();
+// promise.race()
+const firstPromise = new Promise((resolve, reject) => {
+  setTimeout(resolve, 500, ">>> Promise.race(): one");
+});
+const secondPromise = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, ">>> Promise.race(): two");
+});
+Promise.race([firstPromise, secondPromise]).then((value) => {
+  console.log(value);
+  // Both resolve, but promise2 is faster
+});
+// splice & slice
+var array=[1,2,3,4,5];
+console.log(">>> splice: ", array.splice(2));
+var array2=[1,2,3,4,5]
+console.log(">>> slice: ", array2.slice(2));
+console.log(">>> splice: ", array);
+console.log(">>> slice: ", array2);
